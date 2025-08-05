@@ -40,20 +40,4 @@ GET https://api.coingecko.com/api/v3/coins/bitcoin
 
 ---
 
-## How to Run the Project
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/<your-username>/CoinGeckoAPI-Test.git
-cd CoinGeckoAPI-Test
-
-**### Install the newman**
-
-npm install -g newman
-
-**### Run the tests**
-
-newman run CoinGeckoAPI.postman_collection.json
-
 
