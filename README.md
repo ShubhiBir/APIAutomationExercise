@@ -48,11 +48,11 @@ GET https://api.coingecko.com/api/v3/coins/bitcoin
 git clone https://github.com/<your-username>/CoinGeckoAPI-Test.git
 cd CoinGeckoAPI-Test
 
-### Install the newman
+**### Install the newman**
 
 npm install -g newman
 
-### Run the tests
+**### Run the tests**
 
 newman run CoinGeckoAPI.postman_collection.json
 
