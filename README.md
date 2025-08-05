@@ -39,5 +39,8 @@ GET https://api.coingecko.com/api/v3/coins/bitcoin
 - [CoinGecko API](https://www.coingecko.com/en/api/documentation)
 
 ---
+## Sample Report
+
+<img width="788" height="417" alt="image" src="https://github.com/user-attachments/assets/575e987e-3279-4f5e-a2eb-aa9d38760ac8" />
 
 
