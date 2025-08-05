@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "b36f4b1b-90f6-4a51-9353-3513bb2bfebc",
+		"name": "CoinGeckoAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47359647"
+	},
+	"item": [
+		{
+			"name": "FetchBitcoinDetails",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify 3 BPIs: EUR,USD,GBP\", function () {",
+							"",
+							"    const price = jsonData.market_data.current_price;",
+							"    const currencies = ['usd', 'gbp', 'eur'];",
+							"    currencies.forEach(currency => {",
+							"        pm.expect(price).to.have.property(currency);",
+							"    })",
+							"",
+							"});",
+							"",
+							"pm.test(\"Each cryptocurrency has a  market cap, and total volume.\", function () {",
+							"",
+							"    const marketCap = jsonData.market_data.market_cap;",
+							"    const totalVolume = jsonData.market_data.total_volume;",
+							"    const currencies = ['usd', 'gbp', 'eur'];",
+							"    currencies.forEach(currency => {",
+							"        pm.expect(marketCap).to.have.property(currency);",
+							"        pm.expect(totalVolume).to.have.property(currency);",
+							"    })",
+							"});",
+							"",
+							"pm.test(\"Verify response contains price_change_percentage_24h\", function () {",
+							"    const price_change = jsonData.market_data.price_change_percentage_24h;",
+							"    pm.expect(price_change).to.be.a(\"number\");",
+							"",
+							"});",
+							"",
+							"pm.test(\"Verify response contains homepage property\", function () {",
+							"    const homePageUrl = jsonData.links;",
+							"    pm.expect(homePageUrl).to.have.property('homepage');",
+							"    pm.expect(homePageUrl.homepage).to.be.a('array').and.not.empty;",
+							"    pm.expect(homePageUrl.homepage[0]).to.be.a('string').and.not.empty;",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.coingecko.com/api/v3/coins/bitcoin",
+					"protocol": "https",
+					"host": [
+						"api",
+						"coingecko",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"coins",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
