@@ -39,6 +39,29 @@ GET https://api.coingecko.com/api/v3/coins/bitcoin
 - [CoinGecko API](https://www.coingecko.com/en/api/documentation)
 
 ---
+
+### Running the Collection
+### Option 1: Using Postman
+Open Postman
+Go to File → Import
+Choose the .json file from the repository (UIAutomationExercise.postman_collection.json)
+Click Import
+You can now run the collection manually or via the Collection Runner in Postman.
+
+### Option 2: Using Newman CLI
+**Prerequisites:**
+Ensure Node.js is installed:
+node -v
+
+Install Newman globally:
+npm install -g newman
+
+**Run the collection:**
+
+newman run UIAutomationExercise.postman_collection.json
+
+newman run UIAutomationExercise.postman_collection.json --reporters cli,html
+
 ## Sample Report
 
 <img width="788" height="417" alt="image" src="https://github.com/user-attachments/assets/575e987e-3279-4f5e-a2eb-aa9d38760ac8" />
